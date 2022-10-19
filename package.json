@@ -1,0 +1,14 @@
+{
+  "author": "Max Dahl",
+  "scripts": {
+    "preinstall": "npm --prefix ./frontend run setup && npm --prefix ./backend run setup",
+    "postinstall": "npm update --save",
+    "fix-all": "npm --prefix ./frontend run fix && npm --prefix ./backend run fix",
+    "dev": "concurrently -n front,tsc,back -c green,blue,yellow -t 'HH:mm:ss' -p '{name} {time}' 'npm --prefix ./frontend run dev' 'npm --prefix ./backend run watch' 'npm --prefix ./backend run dev'"
+  },
+  "devDependencies": {
+    "concurrently": "^7.4.0",
+    "husky": "^8.0.1",
+    "nodemon": "^2.0.20"
+  }
+}
